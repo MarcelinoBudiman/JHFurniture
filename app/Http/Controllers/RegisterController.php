@@ -7,8 +7,7 @@ use App\Models\User;
 
 class RegisterController extends Controller
 {
-    public function register(){
-
+    public function createPage(){
         return view('auth.register');
     }
 
