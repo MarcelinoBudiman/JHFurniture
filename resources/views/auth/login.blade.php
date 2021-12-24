@@ -8,14 +8,14 @@
   <div class="row mb-3">
     <label for="Email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
     <div class="col-md-6">
-        <input type="email" class="form-control" id="Email" placeholder="Enter your email">
+        <input type="email" class="form-control" id="Email" placeholder="Enter your email" required>
     </div>
   </div>
 
   <div class="row mb-3">
     <label for="Password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
     <div class="col-md-6">
-        <input type="password" class="form-control" id="Password" placeholder="Enter your password">
+        <input type="password" class="form-control" id="Password" placeholder="Enter your password" required>
     </div>
   </div>
 

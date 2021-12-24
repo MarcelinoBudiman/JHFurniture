@@ -10,4 +10,19 @@ class RegisterController extends Controller
 
         return view('auth.register');
     }
+
+    public function storeUser(Request $request){
+
+        $validate = $request->validate([
+            // Required disini untuk jaga jaga jika tembus di required form
+            'name' => 'required|unique:users|regex:/^[a-zA-Z]*$/',
+            'email' => 'email:dns|required|unique:users',
+            'password' => 'required|min:5|max:20',
+            'address' => 'required|min:5|max:95',
+            'gender' => 'required'
+        ]);
+
+        dd($validate);
+
+    }
 }
