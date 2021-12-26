@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FurnitureController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -26,3 +27,5 @@ Route::get('/register', [RegisterController::class, 'createPage']);
 Route::post('/register', [RegisterController::class, 'storeUser']);
 
 Route::get('/home', [HomeController::class, 'createPage'])->middleware('auth');
+
+Route::get('/view', [FurnitureController::class, 'createViewPage']);
