@@ -9,7 +9,7 @@
 </head>
 <body>
     {{-- HEADER --}}
-    <nav class="navbar navbar-expand-md navbar-dark justify-content-center" style="background-color: #6f42c1;">
+    <nav class="navbar navbar-expand-md navbar-dark justify-content-center" style="background-color: {{PRIMARY_COLOR}};">
         <div class="container-fluid">
             <a class="navbar-brand me-auto p-2 bd-highlight" href="#">JH Furniture</a>
             <ul class="navbar-nav ms-auto">
@@ -17,7 +17,7 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">View</a>
+                    <a class="nav-link" href="/view">View</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
@@ -34,7 +34,7 @@
     </div>
 
     {{-- FOOTER --}}
-    <footer class="fixed-bottom" style="background-color: #6f42c1;">
+    <footer class="fixed-bottom" style="background-color: {{PRIMARY_COLOR}};">
         <p class="text-center color fs-6 text-light align-self-center mb-0">Copyright &copy; Marcelino Budiman - Hezekiah Caleb</p>
     </footer>
 
