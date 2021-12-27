@@ -23,7 +23,7 @@
                     <a class="nav-link" href="/login">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">Add Furniture</a>
+                    <a class="nav-link" href="/add-furniture-page">Add Furniture</a>
                 </li>
             </ul>
     </nav>

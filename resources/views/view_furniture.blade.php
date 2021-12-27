@@ -16,17 +16,17 @@
             <h1 class="fs-2 text-center" style="color: {{PRIMARY_COLOR}};">Welcome, {{$user->name}} <br> to JH Furniture</h1>
         @elseif ($user->role == 'Admin')
             <h1 class="fs-2 text-center" style="color: {{PRIMARY_COLOR}};">{{ __('View Furniture') }}</h1>
-            <div class="input-group">
+            <div class="input-group mt-4">
                 <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                 <button type="button" class="btn btn-outline-primary">Search</button>
             </div>
         @endif
 
-        <div class="row">
+        <div class="row mt-4">
             @forelse ($furnitures as $f)
                 <div class="col-md-3 mt-2">
                     <div class="card" style="background-color: {{PRIMARY_COLOR}};">
-                        <img class="card-img-top" src="{{Storage::url('images/'.$f->image)}}" alt="{{$f->name}}">
+                        <a href="/detail/{{$f->id}}"><img class="card-img-top" src="{{Storage::url('images/'.$f->image)}}" alt="{{$f->name}}"></a>
                         <div class="card-body text-center">
                             <h5 class="card-title text-white">{{$f->name}}</h5>
                             <p class="text-white">Rp.{{$f->price}}</p>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             @empty
-                <div>No data</div>
+                <i class="text-center fs-1 text-muted mt-5">No data</i>
             @endforelse
         </div>
 

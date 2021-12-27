@@ -30,6 +30,9 @@ Route::post('/register', [RegisterController::class, 'storeUser']);
 Route::get('/home', [HomeController::class, 'createPage'])->middleware('auth');
 
 Route::get('/view', [FurnitureController::class, 'createViewPage']);
+Route::get('/detail/{id}', [FurnitureController::class, 'createDetailPage']);
 Route::get('/update-furniture-page/{id}', [FurnitureController::class, 'createUpdatePage']);
 Route::post('/update-furniture/{id}', [FurnitureController::class, 'updateFurniture']);
 Route::delete('/delete-furniture/{id}', [FurnitureController::class, 'deleteFurniture']);
+Route::get('/add-furniture-page', [FurnitureController::class, 'createAddPage']);
+Route::post('/insert-furniture', [FurnitureController::class, 'insertFurniture']);
