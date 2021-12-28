@@ -1,4 +1,4 @@
-@extends(Auth::check() ? 'admin.template' : 'guest.template')
+@extends(Auth::check() ? auth()->user()->role == "User" ? 'user.template' : 'admin.template' : 'guest.template')
 
 @section('body')
 

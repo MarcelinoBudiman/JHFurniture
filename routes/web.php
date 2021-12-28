@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\FurnitureController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -30,9 +31,16 @@ Route::post('/register', [RegisterController::class, 'storeUser']);
 Route::get('/profile/{id}', [UserController::class, 'viewProfile'])->middleware('auth');
 
 Route::get('/view', [FurnitureController::class, 'createViewPage']);
+Route::get('/search', [FurnitureController::class, 'searchFurniture']);
 Route::get('/detail/{id}', [FurnitureController::class, 'createDetailPage']);
 Route::get('/update-furniture-page/{id}', [FurnitureController::class, 'createUpdatePage']);
 Route::post('/update-furniture/{id}', [FurnitureController::class, 'updateFurniture']);
 Route::delete('/delete-furniture/{id}', [FurnitureController::class, 'deleteFurniture']);
 Route::get('/add-furniture-page', [FurnitureController::class, 'createAddPage']);
 Route::post('/insert-furniture', [FurnitureController::class, 'insertFurniture']);
+
+Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart']);
+Route::get('/reduce-cart/{id}', [CartController::class, 'reduceQty']);
+Route::get('/cart', [CartController::class, 'createCartPage']);
+Route::get('/checkout', [CartController::class, 'createCheckoutPage']);
+Route::post('/add-to-transaction', [CartController::class, 'insertTransaction']);

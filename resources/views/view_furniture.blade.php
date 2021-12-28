@@ -1,4 +1,4 @@
-@extends(Auth::check() ? 'user.template' : 'guest.template')
+@extends(Auth::check() ? auth()->user()->role == "User" ? 'user.template' : 'admin.template' : 'guest.template')
 
 @php
     $user = auth()->user();
@@ -16,9 +16,13 @@
             <h1 class="fs-2 text-center" style="color: {{PRIMARY_COLOR}};">Welcome, {{$user->name}} <br> to JH Furniture</h1>
         @elseif ($user->role == 'Admin')
             <h1 class="fs-2 text-center" style="color: {{PRIMARY_COLOR}};">{{ __('View Furniture') }}</h1>
-            <div class="input-group mt-4">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-primary">Search</button>
+            <div class="row justify-content-end">
+                <form action="/search" class="col-md-4">
+                    <div class="input-group mt-4">
+                        <input type="search" class="form-control rounded" name="q" id="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <button type="submit" class="btn btn-outline-primary">Search</button>
+                    </div>
+                </form>
             </div>
         @endif
 
@@ -38,7 +42,7 @@
                                     <button class="btn btn-danger">Delete</button>
                                 </form>
                             @else
-                                <a href="#" class="btn btn-light">Add to Cart</a>
+                                <a href="{{$user ? '/add-to-cart/'.$f->id : '/login'}}" class="btn btn-light">Add to Cart</a>
                             @endif
                         </div>
                     </div>
@@ -47,7 +51,16 @@
                 <i class="text-center fs-1 text-muted mt-5">No data</i>
             @endforelse
         </div>
-
+        @if (!empty($furnitures))
+            <div class="row mt-4 justify-content-center">
+                <nav class="col-md-3">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="{{$furnitures->previousPageUrl()}}"><< Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="{{$furnitures->nextPageUrl()}}">Next >></a></li>
+                    </ul>
+                </nav>
+            </div>
+        @endif
     </div>
 
 @endsection

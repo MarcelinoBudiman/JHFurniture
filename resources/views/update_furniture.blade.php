@@ -1,4 +1,4 @@
-@extends(Auth::check() ? 'user.template' : 'guest.template')
+@extends(Auth::check() ? auth()->user()->role == "User" ? 'user.template' : 'admin.template' : 'guest.template')
 
 @php
     $user = auth()->user();

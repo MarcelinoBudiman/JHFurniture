@@ -2,7 +2,7 @@
     $user = auth()->user();
 @endphp
 
-@extends(Auth::check() ? 'admin.template' : 'guest.template')
+@extends(Auth::check() ? auth()->user()->role == "User" ? 'user.template' : 'admin.template' : 'guest.template')
 
 @section('body')
 
@@ -36,7 +36,7 @@
                 </div>
             @else
                 <div class="col col-md-2">
-                    <a class="btn btn-primary" href="#">Add To Cart</a>
+                    <a href="{{$user ? '/add-to-cart/'.$furniture->id : '/login'}}" class="btn btn-primary">Add to Cart</a>
                 </div>
             @endif
         </div>

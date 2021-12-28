@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule;
 class FurnitureController extends Controller
 {
     public function createViewPage(){
-        $furnitures = Furniture::all();
+        $furnitures = Furniture::paginate(4);
 
         return view('view_furniture', compact('furnitures'));
     }
@@ -38,6 +38,12 @@ class FurnitureController extends Controller
         }
 
         else return redirect()->back();
+    }
+
+    public function searchFurniture(Request $request){
+        $search_query = $request->query('q');
+        $data = Furniture::where('name', "LIKE", "%$search_query%")->paginate(5);
+        return view('view_furniture')->with('furnitures', $data)->with('q', $search_query);
     }
 
     public function insertFurniture(Request $request){
@@ -115,4 +121,5 @@ class FurnitureController extends Controller
 
         return redirect()->back();
     }
+
 }
