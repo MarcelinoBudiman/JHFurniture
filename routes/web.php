@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 use App\Models\Furniture;
 
 /*
@@ -18,16 +19,15 @@ use App\Models\Furniture;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/home', [HomeController::class, 'createPage']);
 
-Route::get('/login', [LoginController::class, 'createPage'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'createPage'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'storeSession']);
+Route::post('/logout', [LoginController::class, 'destroySession']);
 Route::get('/register', [RegisterController::class, 'createPage']);
 Route::post('/register', [RegisterController::class, 'storeUser']);
 
-Route::get('/home', [HomeController::class, 'createPage'])->middleware('auth');
+Route::get('/profile/{id}', [UserController::class, 'viewProfile'])->middleware('auth');
 
 Route::get('/view', [FurnitureController::class, 'createViewPage']);
 Route::get('/update-furniture-page/{id}', [FurnitureController::class, 'createUpdatePage']);

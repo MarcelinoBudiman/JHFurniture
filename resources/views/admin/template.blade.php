@@ -14,13 +14,13 @@
             <a class="navbar-brand me-auto p-2 bd-highlight" href="#">JH Furniture</a>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/view">View</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Profile</a>
+                    <a class="nav-link" href="/profile/{{$user->id}}">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/register">Add Furniture</a>

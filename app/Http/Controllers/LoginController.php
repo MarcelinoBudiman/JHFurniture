@@ -39,4 +39,12 @@ class LoginController extends Controller
         // Supaya ntar bisa di catch ama message bukan error
         return back()->with('loginError', 'Login Failed!');
     }
+
+    public function destroySession(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/home');
+    }
 }
