@@ -16,6 +16,20 @@ class FurnitureController extends Controller
         return view('view_furniture', compact('furnitures'));
     }
 
+    public function createDetailPage($id){
+        $furniture = Furniture::find($id);
+
+        if($furniture != null){
+            return view('detail', compact('furniture'));
+        }
+
+        else return redirect()->back();
+    }
+
+    public function createAddPage(){
+        return view('add_furniture');
+    }
+
     public function createUpdatePage($id){
         $furniture = Furniture::find($id);
 
@@ -28,6 +42,31 @@ class FurnitureController extends Controller
 
     public function insertFurniture(Request $request){
 
+        $validator = Validator::make($request->all(), [
+            'name' => 'unique:furnitures,name|max:15|required',
+            'price' => 'numeric|min:5000|max:10000000|required',
+            'type' => 'required',
+            'color' => 'required',
+            'image' => 'image|required'
+        ]);
+
+        if($validator->fails()){
+            return back()->withErrors($validator);
+        }
+
+        $furniture = new Furniture();
+        $furniture->name = $request->name;
+        $furniture->price = $request->price;
+        $furniture->type = $request->type;
+        $furniture->color = $request->color;
+
+        $file = $request->file('image');
+        $imageName = $furniture->id.'_'.$furniture->name.'.'.$file->getClientOriginalExtension();
+        Storage::putFileAs('public/images/', $file, $imageName);
+        $furniture->image = $imageName;
+        $furniture->save();
+
+        return redirect()->back()->with('success', 'Furniture successfully added!');
     }
 
     public function updateFurniture(Request $request, $id){
@@ -52,7 +91,7 @@ class FurnitureController extends Controller
             $file = $request->file('image');
 
             if($file != null){
-                $imageName = $furniture->id.'_'.$furniture->name.'.'.$file->getClientOriginalExtension();
+                $imageName = 'New_'.$furniture->name.'.'.$file->getClientOriginalExtension();
                 Storage::delete('public/images/'.$furniture->image);
                 Storage::putFileAs('public/images/', $file, $imageName);
                 $furniture->image = $imageName;
@@ -71,7 +110,7 @@ class FurnitureController extends Controller
             Storage::delete('public/images/'.$furniture->image);
             $furniture->delete();
 
-            // return redirect('home')->with('message', 'Delete Successful!');
+            return redirect('home')->with('message', 'Delete Successful!');
         }
 
         return redirect()->back();

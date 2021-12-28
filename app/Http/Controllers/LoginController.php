@@ -20,7 +20,7 @@ class LoginController extends Controller
         $remember = $request->remember;
 
         $creds = $request->validate([
-            'email' => 'required|email:dns',
+            'email' => 'required',
             'password' => 'required',
         ]);
 
