@@ -20,7 +20,7 @@
                     <a class="nav-link" href="/view">View</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/profile/{{$user->id}}">Profile</a>
+                    <a class="nav-link" href="/profile/{{auth()->user()->id}}">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/add-furniture-page">Add Furniture</a>
