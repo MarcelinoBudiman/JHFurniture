@@ -23,7 +23,7 @@
                     <a class="nav-link" href="/profile/{{$user->id}}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/register">Add Furniture</a>
+                    <a class="nav-link" href="/add-furniture-page">Add Furniture</a>
                 </li>
             </ul>
     </nav>

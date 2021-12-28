@@ -54,7 +54,7 @@
                 </div>
             </div>
         </form>
-        <div class="text-center mt-8">
+        <div class="text-center mt-5">
             @if ($errors->any())
                 @foreach ($errors->all() as $error)
                     <i class="text-danger">{{$error}}</i>
