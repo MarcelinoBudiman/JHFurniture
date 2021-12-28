@@ -20,7 +20,7 @@
                             <h5>{{$details['name']}}</h5>
                         </div>
                         <div class="col-md-2 mt-2">
-                            <h5>Rp.{{$details['price']}}</h5>
+                            <h5>Rp.{{number_format($details['price'],0,',','.')}}</h5>
                         </div>
                         <div class="col-md-2 mt-2">
                             <h5>{{$details['qty']}}</h5>
@@ -29,16 +29,16 @@
                             <h5>Rp.{{$details['qty']*$details['price']}}</h5>
                         </div>
                         <div class="col-md-2 mt-2">
-                            <a href="/reduce-cart/{{$id}}" class="btn btn-danger">-</a>
-                            <a href="/add-to-cart/{{$id}}" class="btn btn-success">+</a>
+                            <a href="/reduce-cart/{{$id}}" class="btn btn-danger px-4" style="background-color: {{PRIMARY_COLOR}}">-</a>
+                            <a href="/add-to-cart/{{$id}}" class="btn btn-success px-4" style="background-color: {{PRIMARY_COLOR}}">+</a>
                         </div>
                     </div>
                 @endforeach
             @else
                 <i class="text-center fs-1 text-muted mt-5">CART IS EMPTY</i>
             @endif
-            <h3 class="text-center mt-3">Total : Rp.{{$total}}</h3>
-            <a href="/checkout" class="btn btn-primary mt-3 mb-5">Proceed to Checkout</a>
+            <h3 class="text-center mt-3">Total : Rp.{{number_format($total,0,',','.')}}</h3>
+            <a href="/checkout" class="btn btn-primary my-5 fs-3 p-3" style="background-color: {{PRIMARY_COLOR}}">Proceed to Checkout</a>
     </div>
 
 @endsection

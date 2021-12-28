@@ -53,7 +53,7 @@ class FurnitureController extends Controller
             'price' => 'numeric|min:5000|max:10000000|required',
             'type' => 'required',
             'color' => 'required',
-            'image' => 'image|required'
+            'image' => 'image|mimes:jpg,jpeg,png|required'
         ]);
 
         if($validator->fails()){
@@ -67,7 +67,7 @@ class FurnitureController extends Controller
         $furniture->color = $request->color;
 
         $file = $request->file('image');
-        $imageName = $furniture->id.'_'.$furniture->name.'.'.$file->getClientOriginalExtension();
+        $imageName = 'NEW_'.$furniture->name.'.'.$file->getClientOriginalExtension();
         Storage::putFileAs('public/images/', $file, $imageName);
         $furniture->image = $imageName;
         $furniture->save();
@@ -80,7 +80,7 @@ class FurnitureController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['required', Rule::unique('furnitures')->ignore($id)],
             'price' => 'numeric|min:5000|max:10000000|required',
-            'image' => 'image|nullable'
+            'image' => 'image|mimes:jpg,jpeg,png|nullable'
         ]);
 
         if($validator->fails()){

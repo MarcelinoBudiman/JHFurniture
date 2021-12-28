@@ -20,7 +20,7 @@
                             <h5>{{$details['name']}}</h5>
                         </div>
                         <div class="col-md-2 mt-2">
-                            <h5>Rp.{{$details['price']}}</h5>
+                            <h5>Rp.{{number_format($details['price'],0,',','.')}}</h5>
                         </div>
                         <div class="col-md-2 mt-2">
                             <h5>{{$details['qty']}}</h5>
@@ -33,10 +33,10 @@
             @else
                 <i class="text-center fs-1 text-muted mt-5">CART IS EMPTY</i>
             @endif
-            <h3 class="text-center mt-4">Total : Rp.{{$total}}</h3>
-            <form action="/add-to-transaction" class="text-left mb-5">
+            <h3 class="text-center my-4">Total : Rp.{{number_format($total,0,',','.')}}</h3>
+            <form action="/add-to-transaction" class="text-left my-5">
                 {{csrf_field()}}
-                <div class="form-group row mt-4 justify-content-center">
+                <div class="form-group row my-4 justify-content-center">
                     <label for="inputPayment" class="col-sm-2">Payment Method</label>
                     <div class="col-sm-4">
                         <div class="form-check form-check-inline">
@@ -49,15 +49,15 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group row mt-4 justify-content-center">
+                <div class="form-group row my-4 justify-content-center">
                     <label for="inputCard" class="col-sm-2">Card Number</label>
                     <div class="col-sm-4">
                         <input type="number" name="card" id="inputCard" class="form-control" placeholder="Enter your card number">
                     </div>
                 </div>
-                <div class="form-group row mt-4 justify-content-center">
+                <div class="form-group row my-4 justify-content-center">
                     <div class="col-sm-10 text-center">
-                        <button type="submit" class="btn btn-primary">Checkout</button>
+                        <button type="submit" class="btn btn-primary fs-4 px-5" style="background-color: {{PRIMARY_COLOR}}">Checkout</button>
                     </div>
                 </div>
             </form>

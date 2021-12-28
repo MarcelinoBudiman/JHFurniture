@@ -47,12 +47,12 @@
                 </div>
             </div>
             <div class="form-group row mt-4">
-                <div class="col-sm-10 text-center">
-                    <button type="submit" class="btn btn-primary">Add Furniture</button>
+                <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-primary px-5" style="background-color: {{PRIMARY_COLOR}}">Add Furniture</button>
                 </div>
             </div>
         </form>
-        <div class="text-center mt-8">
+        <div class="text-center my-4">
             @if ($errors->any())
                 @foreach ($errors->all() as $error)
                     <i class="text-danger">{{$error}}</i>
