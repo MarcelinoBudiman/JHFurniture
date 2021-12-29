@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UpdateController;
 use App\Models\Furniture;
 
 /*
@@ -20,27 +21,36 @@ use App\Models\Furniture;
 |
 */
 
+//HOME
+Route::get('/', [HomeController::class, 'createPage']);
 Route::get('/home', [HomeController::class, 'createPage']);
 
+//UPDATE
 Route::get('/login', [LoginController::class, 'createPage'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'storeSession']);
 Route::post('/logout', [LoginController::class, 'destroySession']);
 Route::get('/register', [RegisterController::class, 'createPage']);
 Route::post('/register', [RegisterController::class, 'storeUser']);
 
+//PROFILE
 Route::get('/profile/{id}', [UserController::class, 'viewProfile'])->middleware('auth');
+Route::get('/update-profile/{id}', [UpdateController::class, 'createPage'])->middleware('auth');
+Route::post('/update-profile-user/{id}', [UpdateController::class, 'updateUser'])->middleware('auth');
+Route::post('/update-profile-admin/{id}', [UpdateController::class, 'updateAdmin'])->middleware('auth');
 
+//FURNITURE
 Route::get('/view', [FurnitureController::class, 'createViewPage']);
 Route::get('/search', [FurnitureController::class, 'searchFurniture']);
 Route::get('/detail/{id}', [FurnitureController::class, 'createDetailPage']);
-Route::get('/update-furniture-page/{id}', [FurnitureController::class, 'createUpdatePage']);
-Route::post('/update-furniture/{id}', [FurnitureController::class, 'updateFurniture']);
-Route::delete('/delete-furniture/{id}', [FurnitureController::class, 'deleteFurniture']);
-Route::get('/add-furniture-page', [FurnitureController::class, 'createAddPage']);
-Route::post('/insert-furniture', [FurnitureController::class, 'insertFurniture']);
+Route::get('/update-furniture-page/{id}', [FurnitureController::class, 'createUpdatePage'])->middleware('auth');
+Route::post('/update-furniture/{id}', [FurnitureController::class, 'updateFurniture'])->middleware('auth');
+Route::delete('/delete-furniture/{id}', [FurnitureController::class, 'deleteFurniture'])->middleware('auth');
+Route::get('/add-furniture-page', [FurnitureController::class, 'createAddPage'])->middleware('auth');
+Route::post('/insert-furniture', [FurnitureController::class, 'insertFurniture'])->middleware('auth');
 
-Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart']);
-Route::get('/reduce-cart/{id}', [CartController::class, 'reduceQty']);
-Route::get('/cart', [CartController::class, 'createCartPage']);
-Route::get('/checkout', [CartController::class, 'createCheckoutPage']);
-Route::post('/add-to-transaction', [CartController::class, 'insertTransaction']);
+//CART
+Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart'])->middleware('auth');
+Route::get('/reduce-cart/{id}', [CartController::class, 'reduceQty'])->middleware('auth');
+Route::get('/cart', [CartController::class, 'createCartPage'])->middleware('auth');
+Route::get('/checkout', [CartController::class, 'createCheckoutPage'])->middleware('auth');
+Route::post('/add-to-transaction', [CartController::class, 'insertTransaction'])->middleware('auth');

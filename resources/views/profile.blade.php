@@ -66,7 +66,7 @@
                     <input class="text-light btn rounded-pill" style="background-color: #6f42c1;" type="button" id="view" name="view" value="View Transaction History">
                 </div>
                 <div class="col-md-4 fs-6">
-                    <input class="text-light btn rounded-pill" style="background-color: #6f42c1;" type="button" id="update" name="update" value="Update">
+                    <a class="text-light btn rounded-pill" style="background-color: #6f42c1;"  href="/update-profile/{{$user->id}}">Update</a>
                 </div>
             </div>
 
@@ -119,7 +119,7 @@
                     <input class="text-light btn rounded-pill" style="background-color: #6f42c1;" type="button" id="view" name="view" value="View All User's Transaction">
                 </div>
                 <div class="col-md-4 fs-6">
-                    <input class="text-light btn rounded-pill" style="background-color: #6f42c1;" type="button" id="update" name="update" value="Update">
+                    <a class="text-light btn rounded-pill" style="background-color: #6f42c1;"  href="/update-profile/{{$user->id}}">Update</a>
                 </div>
             </div>
 
