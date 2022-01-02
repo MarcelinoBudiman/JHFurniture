@@ -53,4 +53,7 @@ Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart'])->middlewar
 Route::get('/reduce-cart/{id}', [CartController::class, 'reduceQty'])->middleware('auth');
 Route::get('/cart', [CartController::class, 'createCartPage'])->middleware('auth');
 Route::get('/checkout', [CartController::class, 'createCheckoutPage'])->middleware('auth');
+
+//TRANSACTION
 Route::post('/add-to-transaction', [CartController::class, 'insertTransaction'])->middleware('auth');
+Route::get('/detail-transaction/{id}', [TransactionController::class, 'transactionHistory'])->middleware('auth');

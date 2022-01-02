@@ -63,7 +63,7 @@
                     </form>
                 </div>
                 <div class="col-md-4 fs-6">
-                    <input class="text-light btn rounded-pill" style="background-color: #6f42c1;" type="button" id="view" name="view" value="View Transaction History">
+                    <a class="text-light btn rounded-pill" style="background-color: #6f42c1;"  href="/detail-transaction/{{$user->id}}">View Transaction History</a>
                 </div>
                 <div class="col-md-4 fs-6">
                     <a class="text-light btn rounded-pill" style="background-color: #6f42c1;"  href="/update-profile/{{$user->id}}">Update</a>
@@ -116,7 +116,7 @@
                     </form>
                 </div>
                 <div class="col-md-4 fs-6">
-                    <input class="text-light btn rounded-pill" style="background-color: #6f42c1;" type="button" id="view" name="view" value="View All User's Transaction">
+                    <a class="text-light btn rounded-pill" style="background-color: #6f42c1;"  href="/detail-transaction/{{$user->id}}">View All User's Transaction</a>
                 </div>
                 <div class="col-md-4 fs-6">
                     <a class="text-light btn rounded-pill" style="background-color: #6f42c1;"  href="/update-profile/{{$user->id}}">Update</a>
