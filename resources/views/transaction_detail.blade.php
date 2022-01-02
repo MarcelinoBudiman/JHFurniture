@@ -16,7 +16,7 @@
             @endphp
             <div class="container-fluid border mb-2" style="border-color: 30px {{PRIMARY_COLOR}};">
                 <p class="mt-3 fs-5 fw-bold">Transaction Id: {{$t->id}}</p>
-                <p class=" fs-6">Transaction Date: {{$t->date}}</p>
+                <p class=" fs-6">Transaction Date: {{$t->transaction_date}}</p>
                 <p class=" fs-6">Method: {{$t->method}}</p>
                 <p class="mb-1 fs-6">Card Number: {{$t->card_number}}</p>
 
@@ -31,7 +31,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($t->details->furniture as $furniture)
+                        @foreach ($t->details->furniture_id as $furniture)
                         @php
                             $total += ($furniture->price * $t->details->quantity);
                         @endphp

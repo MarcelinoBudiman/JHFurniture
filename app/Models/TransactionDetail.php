@@ -9,6 +9,7 @@ class TransactionDetail extends Model
 {
     use HasFactory;
 
+    protected $table = 'transaction_details';
     public $timestamps = false;
 
     public function transactionHeader(){

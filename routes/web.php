@@ -30,7 +30,7 @@ Route::get('/home', [HomeController::class, 'createPage']);
 Route::get('/login', [LoginController::class, 'createPage'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'storeSession']);
 Route::post('/logout', [LoginController::class, 'destroySession']);
-Route::get('/register', [RegisterController::class, 'createPage']);
+Route::get('/register', [RegisterController::class, 'createPage'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'storeUser']);
 
 //PROFILE
