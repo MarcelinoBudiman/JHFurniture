@@ -20,6 +20,7 @@ class CreateFurnituresTable extends Migration
             $table->string('type');
             $table->string('color');
             $table->string('image');
+            $table->date('deleted_at')->nullable();
         });
     }
 
