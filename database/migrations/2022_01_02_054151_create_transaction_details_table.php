@@ -17,8 +17,6 @@ class CreateTransactionDetailsTable extends Migration
             $table->unsignedBigInteger('transaction_id');
             $table->unsignedBigInteger('furniture_id');
             $table->integer('quantity');
-            $table->integer('price');
-            $table->integer('total_price');
         });
     }
 
