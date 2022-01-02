@@ -32,6 +32,11 @@
                 <a href="{{$user ? '/add-to-cart/'.$furniture->id : '/login'}}" class="btn btn-primary mx-3 py-3 px-5 col-md-2" style="background-color: {{PRIMARY_COLOR}}">Add to Cart</a>
             @endif
         </div>
+        <div class="text-center my-4">
+            @if (session()->has('message'))
+                <i class="text-success">{{session()->get('message')}}</i>
+            @endif
+        </div>
     </div>
 
 @endsection

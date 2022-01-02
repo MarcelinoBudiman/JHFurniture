@@ -69,6 +69,11 @@
                     @endforeach
                 @endif
             </div>
+            <div class="text-center my-4">
+                @if (session()->has('message'))
+                    <i class="text-success">{{session()->get('message')}}</i>
+                @endif
+            </div>
     </div>
 
 @endsection

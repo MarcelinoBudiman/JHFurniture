@@ -55,6 +55,11 @@
                 <i class="text-center fs-1 text-muted mt-5">NO DATA</i>
             @endforelse
         </div>
+        <div class="text-center my-4">
+            @if (session()->has('message'))
+                <i class="text-success">{{session()->get('message')}}</i>
+            @endif
+        </div>
 @endsection
 
 

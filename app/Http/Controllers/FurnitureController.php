@@ -72,7 +72,8 @@ class FurnitureController extends Controller
         $furniture->image = $imageName;
         $furniture->save();
 
-        return redirect()->back()->with('success', 'Furniture successfully added!');
+        session()->flash('message', 'Furniture successfully added!');
+        return redirect()->back();
     }
 
     public function updateFurniture(Request $request, $id){
@@ -106,6 +107,7 @@ class FurnitureController extends Controller
             $furniture->save();
         }
 
+        session()->flash('message', 'Update Successful!');
         return redirect()->back();
     }
 
@@ -116,9 +118,11 @@ class FurnitureController extends Controller
             Storage::delete('public/images/'.$furniture->image);
             $furniture->delete();
 
-            return redirect('home')->with('message', 'Delete Successful!');
+            session()->flash('message', 'Furniture successfully deleted!');
+            return redirect('home');
         }
 
+        session()->flash('message', "Furniture doesn't exist!");
         return redirect()->back();
     }
 

@@ -90,6 +90,7 @@ class CartController extends Controller
         $cart = session()->get('cart');
 
         if(!$cart){
+            session()->flash('message', "Cart is empty!");
             return redirect()->back();
         }
 
@@ -119,6 +120,7 @@ class CartController extends Controller
         }
 
         session()->forget('cart');
+        session()->flash('message', "Checkout successful!");
         return redirect('home');
     }
 }
