@@ -43,11 +43,11 @@ Route::post('/update-profile-admin/{id}', [UpdateController::class, 'updateAdmin
 Route::get('/view', [FurnitureController::class, 'createViewPage']);
 Route::get('/search', [FurnitureController::class, 'searchFurniture']);
 Route::get('/detail/{id}', [FurnitureController::class, 'createDetailPage']);
-Route::get('/update-furniture-page/{id}', [FurnitureController::class, 'createUpdatePage'])->middleware('auth');
-Route::post('/update-furniture/{id}', [FurnitureController::class, 'updateFurniture'])->middleware('auth');
-Route::delete('/delete-furniture/{id}', [FurnitureController::class, 'deleteFurniture'])->middleware('auth');
+Route::get('/update-furniture-page/{id}', [FurnitureController::class, 'createUpdatePage'])->middleware('admin');
+Route::post('/update-furniture/{id}', [FurnitureController::class, 'updateFurniture'])->middleware('admin');
+Route::delete('/delete-furniture/{id}', [FurnitureController::class, 'deleteFurniture'])->middleware('admin');
 Route::get('/add-furniture-page', [FurnitureController::class, 'createAddPage'])->middleware('auth');
-Route::post('/insert-furniture', [FurnitureController::class, 'insertFurniture'])->middleware('auth');
+Route::post('/insert-furniture', [FurnitureController::class, 'insertFurniture'])->middleware('admin');
 
 //CART
 Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart'])->middleware('auth');

@@ -1,4 +1,4 @@
-@extends(Auth::check() ? auth()->user()->role == "User" ? 'user.template' : 'admin.template' : 'guest.template')
+@extends('admin.template')
 
 @php
     $user = auth()->user();
@@ -6,6 +6,7 @@
 
 @section('body')
 
+    
     <div class="container-fluid col-md-8 mt-4">
         <h1 class="fs-2 text-center mb-8" style="color: {{PRIMARY_COLOR}};">Update Furniture</h1>
         <form action="/update-furniture/{{$furniture->id}}" method="POST" enctype="multipart/form-data" class="text-center">
