@@ -2,7 +2,7 @@
 
 @section('body')
 
-    <div class="container-fluid col-md-8 mt-4 text-center">
+    <div class="container-fluid mt-4 text-center">
         <h1 class="fs-2 text-center mb-8" style="color: {{PRIMARY_COLOR}};">Cart</h1>
         @php
             $total = 0;
@@ -14,7 +14,7 @@
                     @endphp
                     <div class="row justify-content-center align-items-center">
                         <div class="col-md-2 mt-2 mr-2">
-                            <img src="{{Storage::url('images/'.$details['image'])}}" alt="{{$details['name']}}">
+                            <img style="width: 220px; height: 200px" src="{{Storage::url('images/'.$details['image'])}}" alt="{{$details['name']}}">
                         </div>
                         <div class="col-md-2 mt-2">
                             <h5>{{$details['name']}}</h5>
@@ -23,10 +23,10 @@
                             <h5>Rp.{{number_format($details['price'],0,',','.')}}</h5>
                         </div>
                         <div class="col-md-2 mt-2">
-                            <h5>{{$details['qty']}}</h5>
+                            <h5>{{$details['qty']}} item(s)</h5>
                         </div>
                         <div class="col-md-2 mt-2">
-                            <h5>Rp.{{$details['qty']*$details['price']}}</h5>
+                            <h5>Rp.{{number_format($details['qty']*$details['price'],0,',','.')}}</h5>
                         </div>
                         <div class="col-md-2 mt-2">
                             <a href="/reduce-cart/{{$id}}" class="btn btn-danger px-4" style="background-color: {{PRIMARY_COLOR}}">-</a>
