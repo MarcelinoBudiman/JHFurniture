@@ -30,7 +30,7 @@
             @forelse ($furnitures as $f)
                 <div class="col-md-3 mt-2">
                     <div class="card shadow" style="background-color: {{PRIMARY_COLOR}};">
-                        <a href="/detail/{{$f->id}}"><img class="card-img-top" style="width: 252px; height: 210px" src="{{Storage::url('images/'.$f->image)}}" alt="{{$f->name}}"></a>
+                        <a href="/detail/{{$f->id}}"><img class="card-img-top" style="width: 100%; height: 230px; object-fit: cover;" src="{{Storage::url('images/'.$f->image)}}" alt="{{$f->name}}"></a>
                         <div class="card-body text-center">
                             <h5 class="card-title text-white">{{$f->name}}</h5>
                             <p class="text-white">Rp.{{number_format($f->price,0,',','.')}}</p>

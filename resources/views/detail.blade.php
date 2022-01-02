@@ -10,7 +10,7 @@
         <h1 class="fs-2 text-center mb-5" style="color: {{PRIMARY_COLOR}};">{{$furniture->name}}</h1>
         <div class="row justify-content-center mb-5" style="color: {{PRIMARY_COLOR}}">
             <div class="col col-md-4">
-                <img src="{{Storage::url('images/'.$furniture->image)}}" alt="{{$furniture->name}}">
+                <img style="width: 100%; height: 230px; object-fit: cover;" src="{{Storage::url('images/'.$furniture->image)}}" alt="{{$furniture->name}}">
             </div>
             <div class="col col-md-4">
                 <h2 class="fs-4 mt-4">Name : {{$furniture->name}}</h2>
