@@ -20,6 +20,9 @@ class UserSeeder extends Seeder
         $pw2 = 'admin2';
         $pw2 = bcrypt($pw2);
 
+        $pw3 = 'user';
+        $pw3 = bcrypt($pw3);
+
         DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
@@ -36,6 +39,14 @@ class UserSeeder extends Seeder
             'address' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto doloribus molestiae voluptate corrupti, eligendi officiis quod. Ratione, maxime quidem? Obcaecati aspernatur consequuntur vero dolor enim, explicabo vitae nesciunt inventore dolore!',
             'gender' => 'Female',
             'role' => 'Admin'
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'user',
+            'email' => 'user@gmail.com',
+            'password' => $pw3,
+            'address' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto doloribus molestiae voluptate corrupti, eligendi officiis quod. Ratione, maxime quidem? Obcaecati aspernatur consequuntur vero dolor enim, explicabo vitae nesciunt inventore dolore!',
+            'gender' => 'Male',
         ]);
     }
 }

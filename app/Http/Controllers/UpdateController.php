@@ -23,14 +23,14 @@ class UpdateController extends Controller
         ]);
         $pw = bcrypt($validate['password']);
 
-        $users = User::find($id);
-        $users->name = ($request->name != null) ? $request->name : $users->name;
-        $users->email = $request->email;
-        $users->password = $pw;
-        $users->save();
+        $user = User::find($id);
+        $user->name = ($request->name != null) ? $request->name : $user->name;
+        $user->email = $request->email;
+        $user->password = $pw;
+        $user->save();
 
 
-        return redirect()->back();
+        return view('profile', compact('user'));
     }
 
     public function updateUser(Request $request, $id){
@@ -43,14 +43,14 @@ class UpdateController extends Controller
         ]);
         $pw = bcrypt($validate['password']);
 
-        $users = User::find($id);
-        $users->name = ($request->name != null) ? $request->name : $users->name;
-        $users->email = $request->email;
-        $users->password = $pw;
-        $users->address = $request->address;
-        $users->save();
+        $user = User::find($id);
+        $user->name = ($request->name != null) ? $request->name : $user->name;
+        $user->email = $request->email;
+        $user->password = $pw;
+        $user->address = $request->address;
+        $user->save();
 
 
-        return redirect()->back();
+        return view('profile', compact('user'));
     }
 }
