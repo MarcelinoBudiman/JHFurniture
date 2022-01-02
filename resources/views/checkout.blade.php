@@ -13,8 +13,8 @@
                         $total += ($details['price'] * $details['qty']);
                     @endphp
                     <div class="row justify-content-center align-items-center">
-                        <div class="col-md-2 mt-2 mr-2">
-                            <img src="{{Storage::url('images/'.$details['image'])}}" alt="{{$details['name']}}">
+                        <div class="col-md-4 mt-2 mr-2">
+                            <img style="width: 100%; height: 230px; object-fit: cover;" src="{{Storage::url('images/'.$details['image'])}}" alt="{{$details['name']}}">
                         </div>
                         <div class="col-md-2 mt-2">
                             <h5>{{$details['name']}}</h5>
