@@ -9,7 +9,7 @@
         {{auth()->user()->name}}
     </div> --}}
 
-    <div class="container-fluid col-md-8 mt-4">
+    <div class="container-fluid mt-4">
         @if (!Auth::check())
             <h1 class="fs-2 text-center mb-8" style="color: {{PRIMARY_COLOR}};">Welcome to JH Furniture</h1>
         @elseif ($user->role == 'User')
@@ -30,7 +30,7 @@
             @forelse ($furnitures as $f)
                 <div class="col-md-3 mt-2">
                     <div class="card shadow" style="background-color: {{PRIMARY_COLOR}};">
-                        <a href="/detail/{{$f->id}}"><img class="card-img-top" src="{{Storage::url('images/'.$f->image)}}" alt="{{$f->name}}"></a>
+                        <a href="/detail/{{$f->id}}"><img class="card-img-top" style="width: 252px; height: 210px" src="{{Storage::url('images/'.$f->image)}}" alt="{{$f->name}}"></a>
                         <div class="card-body text-center">
                             <h5 class="card-title text-white">{{$f->name}}</h5>
                             <p class="text-white">Rp.{{number_format($f->price,0,',','.')}}</p>
