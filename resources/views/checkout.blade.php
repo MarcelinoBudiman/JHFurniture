@@ -40,11 +40,11 @@
                     <label for="inputPayment" class="col-sm-2">Payment Method</label>
                     <div class="col-sm-4">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="paymentRadioOptions" id="creditRadio" value="Credit">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="creditRadio" value="Credit">
                             <label class="form-check-label" for="creditRadio">Credit</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="paymentRadioOptions" id="debitRadio" value="Debit">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="debitRadio" value="Debit">
                             <label class="form-check-label" for="debitRadio">Debit</label>
                         </div>
                     </div>
@@ -61,6 +61,14 @@
                     </div>
                 </div>
             </form>
+            <div class="text-center my-4">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <i class="text-danger">{{$error}}</i>
+                        <br>
+                    @endforeach
+                @endif
+            </div>
     </div>
 
 @endsection

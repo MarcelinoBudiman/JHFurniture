@@ -17,7 +17,7 @@ class FurnitureSeeder extends Seeder
         DB::table('furnitures')->insert([
             'name' => 'Jessheim',
             'price' => 850000,
-            'type' => 'Carpet',
+            'type' => 'Bed',
             'color' => 'Black',
             'images' => 'Jessheim.jpg'
         ]);

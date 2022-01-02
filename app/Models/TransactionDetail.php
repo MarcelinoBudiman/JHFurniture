@@ -9,6 +9,8 @@ class TransactionDetail extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     public function transactionHeader(){
         return $this->belongsTo(Transaction::class, 'transaction_id');
     }

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Furniture;
+use App\Models\TransactionDetail;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
@@ -84,6 +87,38 @@ class CartController extends Controller
     }
 
     public function insertTransaction(Request $request){
+        $cart = session()->get('cart');
 
+        if(!$cart){
+            return redirect()->back();
+        }
+
+       $validator = Validator::make($request->all(), [
+            'paymentMethod' => 'required',
+            'card' => 'numeric|digits:16|required'
+       ]);
+
+       if($validator->fails()){
+           return back()->withErrors($validator);
+        }
+
+        $transaction = new Transaction();
+        $transaction->user_id = auth()->user()->id;
+        $transaction->transaction_date = date('Y-m-d');
+        $transaction->method = $request->paymentMethod;
+        $transaction->card_number = $request->card;
+
+        $transaction->save();
+
+        foreach(session('cart') as $id => $content){
+            $detail = new TransactionDetail();
+            $detail->transaction_id = $transaction->id;
+            $detail->furniture_id = $id;
+            $detail->quantity = $content['qty'];
+            $detail->save();
+        }
+
+        session()->forget('cart');
+        return redirect('home');
     }
 }

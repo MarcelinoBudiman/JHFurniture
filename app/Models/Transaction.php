@@ -11,6 +11,9 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    protected $table = 'transaction';
+    public $timestamps = false;
+
     public function user(){
         return $this->belongsTo(ModelsUser::class, 'user_id');
     }
