@@ -21,7 +21,7 @@
                 <p class="mb-1 fs-6">Card Number: {{$t->card_number}}</p>
 
 
-                <table class="table table-sm table-bordered text-center" style="border-color: {{PRIMARY_COLOR}};">
+                <table class="table table-sm table-bordered text-center fw-bold" style="border-color: {{PRIMARY_COLOR}};">
                     <thead>
                         <tr>
                             <th scope="col">Furniture's Name</th>
@@ -31,15 +31,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($t->details->furniture_id as $furniture)
-                        @php
-                            $total += ($furniture->price * $t->details->quantity);
-                        @endphp
-                        <tr>
-                            <td>{{$furniture->name}}</td>
-                            <td>{{$furniture->price}}</td>
-                            <td>{{$t->details->quantity}}</td>
-                        </tr>
+                        @foreach ($t->details as $details)
+                            @php
+                                $total += ($details->furnitures->price * $details->quantity);
+                            @endphp
+                            <tr>
+
+                                <td>{{$details->furnitures->name}}</td>
+                                <td>Rp.{{number_format($details->furnitures->price,0,',','.')}}</td>
+                                <td>{{$details->quantity}}</td>
+                                <td>Rp.{{number_format($details->furnitures->price*$details->quantity ,0,',','.')}}</td>
+                            </tr>
                         @endforeach
                         {{-- TOTAL PRICE --}}
                         <tr>
@@ -54,7 +56,7 @@
         </div>
     @else
         {{-- ADMIN --}}
-        <div class="container-fluid mt-3 mb-2">
+        <div class="container-fluid mt-3 mb-5">
             <h1 class="fs-2 mb-4 text-center" style="color: {{PRIMARY_COLOR}};">Transaction History</h1>
 
             @foreach ($transactions as $t)
@@ -62,7 +64,7 @@
             @php
                 $total = 0;
             @endphp
-            <div class="container-fluid border mb-2" style="border-color: 30px {{PRIMARY_COLOR}};">
+            <div class="container-fluid border mb-3" style="border-color: 30px {{PRIMARY_COLOR}};">
                 <p class="mt-3 fs-5 fw-bold">Transaction Id: {{$t->id}}</p>
                 <p class=" fs-6">Transaction Date: {{$t->date}}</p>
                 <p class=" fs-6">Method: {{$t->method}}</p>
@@ -80,15 +82,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($t->details->furniture as $furniture)
-                        @php
-                            $total += ($furniture->price * $t->details->quantity);
-                        @endphp
-                        <tr>
-                            <td>{{$furniture->name}}</td>
-                            <td>{{$furniture->price}}</td>
-                            <td>{{$t->details->quantity}}</td>
-                        </tr>
+                        @foreach ($t->details as $details)
+                            @php
+                                $total += ($details->furnitures->price * $details->quantity);
+                            @endphp
+                            <tr>
+                                <td>{{$details->furnitures->name}}</td>
+                                <td>Rp.{{number_format($details->furnitures->price,0,',','.')}}</td>
+                                <td>{{$details->quantity}}</td>
+                                <td>Rp.{{number_format($details->furnitures->price*$details->quantity ,0,',','.')}}</td>
+                            </tr>
                         @endforeach
                         {{-- TOTAL PRICE --}}
                         <tr>

@@ -16,7 +16,7 @@ class TransactionDetail extends Model
         return $this->belongsTo(Transaction::class, 'transaction_id');
     }
 
-    public function furniture(){
-        return $this->hasMany(Furniture::class, 'furniture_id');
+    public function furnitures(){
+        return $this->belongsTo(Furniture::class, 'furniture_id');
     }
 }

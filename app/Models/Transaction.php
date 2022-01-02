@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\User as ModelsUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User;
+
 
 class Transaction extends Model
 {
@@ -19,7 +19,7 @@ class Transaction extends Model
     }
 
     public function details(){
-        return $this->hasOne(TransactionDetail::class, 'transaction_id');
+        return $this->hasMany(TransactionDetail::class, 'transaction_id');
     }
 
 }

@@ -15,4 +15,8 @@ class Furniture extends Model
 
     protected $table = 'furnitures';
     protected $dates = ['deleted_at'];
+
+    public function bought(){
+        return $this->HasMany(TransactionDetail::class, 'furniture_id');
+    }
 }
