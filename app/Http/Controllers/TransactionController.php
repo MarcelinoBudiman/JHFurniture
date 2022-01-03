@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class TransactionController extends Controller

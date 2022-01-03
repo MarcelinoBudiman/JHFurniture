@@ -29,7 +29,7 @@
                     <button class="btn text-center btn-danger mx-3 btn-lg col-md-12">Delete</button>
                 </form>
             @else
-                <a href="{{$user ? '/add-to-cart/'.$furniture->id : '/login'}}" class="btn btn-primary mx-3 btn-lg text-center col-md-2" style="background-color: {{PRIMARY_COLOR}}">Add to Cart</a>
+                <a href="{{$user ? '/add-to-cart/'.$furniture->id : '/login'}}" class="btn btn-primary mx-3 btn-lg text-center col-md-3" style="background-color: {{PRIMARY_COLOR}}">Add to Cart</a>
             @endif
         </div>
         <div class="text-center my-4">
