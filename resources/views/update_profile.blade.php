@@ -4,7 +4,7 @@
     @if ($user->role === "User")
 
         <div class="container-fluid col-md-8 mt-4">
-            <h1 class="fs-2 text-center" style="color: #6f42c1;">Update Profile</h1>
+            <h1 class="fs-2 text-center" style="color: {{PRIMARY_COLOR}};">Update Profile</h1>
 
             <form class="mt-3" action="/update-profile-user/{{$user->id}}" method="POST">
                 @csrf
@@ -59,7 +59,7 @@
 
             <div class="row mb-3">
                     <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="col-md-5 btn rounded-pill text-light" style="background-color: #6f42c1;">{{ __('Update Profile') }}</button>
+                        <button type="submit" class="col-md-5 btn rounded-pill text-light" style="background-color: {{PRIMARY_COLOR}};">{{ __('Update Profile') }}</button>
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@
     @else
 
         <div class="container-fluid col-md-8 mt-4">
-            <h1 class="fs-2 text-center" style="color: #6f42c1;">Update Profile</h1>
+            <h1 class="fs-2 text-center" style="color: {{PRIMARY_COLOR}};">Update Profile</h1>
             @if (session()->has('updateError'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     {{ session('updateError') }}
@@ -117,7 +117,7 @@
 
             <div class="row mb-3">
                 <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="col-md-5 btn rounded-pill text-light" style="background-color: #6f42c1;">{{ __('Update Profile') }}</button>
+                    <button type="submit" class="col-md-5 btn rounded-pill text-light" style="background-color: {{PRIMARY_COLOR}};">{{ __('Update Profile') }}</button>
                 </div>
             </div>
 

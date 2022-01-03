@@ -10,7 +10,7 @@
     </div>
     @endif
 
-    <h1 class="fs-2 text-center" style="color: #6f42c1;">{{ __('Login') }}</h1>
+    <h1 class="fs-2 text-center" style="color: {{PRIMARY_COLOR}};">{{ __('Login') }}</h1>
 
 <form class="mt-3" action="/login" method="POST">
     @csrf
@@ -43,7 +43,7 @@
 
   <div class="row mb-3">
         <div class="col-md-6 offset-md-4">
-            <button type="submit" class="col-md-5 btn rounded-pill text-light" style="background-color: #6f42c1;">{{ __('Login') }}</button>
+            <button type="submit" class="col-md-5 btn rounded-pill text-light" style="background-color: {{PRIMARY_COLOR}};">{{ __('Login') }}</button>
         </div>
     </div>
 

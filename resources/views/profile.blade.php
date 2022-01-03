@@ -3,7 +3,7 @@
 @section('body')
     @if ($user->role === "User")
 
-        <div class="container fs-2 text-center mt-2" style="color: #6f42c1;">
+        <div class="container fs-2 text-center mt-2" style="color: {{PRIMARY_COLOR}};">
             <h1>{{$user->name}}'s Profile</h1>
         </div>
 
@@ -59,14 +59,14 @@
                 <div class="col-md-2 fs-6">
                     <form action="/logout" method="POST">
                         @csrf
-                        <button class="text-light btn rounded-pill" style="background-color: #6f42c1;" type="submit">Logout</button>
+                        <button class="text-light btn rounded-pill" style="background-color: {{PRIMARY_COLOR}};" type="submit">Logout</button>
                     </form>
                 </div>
                 <div class="col-md-4 fs-6">
-                    <a class="text-light btn rounded-pill" style="background-color: #6f42c1;"  href="/detail-transaction/{{$user->id}}">View Transaction History</a>
+                    <a class="text-light btn rounded-pill" style="background-color: {{PRIMARY_COLOR}};"  href="/detail-transaction/{{$user->id}}">View Transaction History</a>
                 </div>
                 <div class="col-md-4 fs-6">
-                    <a class="text-light btn rounded-pill" style="background-color: #6f42c1;"  href="/update-profile/{{$user->id}}">Update</a>
+                    <a class="text-light btn rounded-pill" style="background-color: {{PRIMARY_COLOR}};"  href="/update-profile/{{$user->id}}">Update</a>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@
 
     @else
 
-        <div class="container fs-2 text-center mt-2" style="color: #6f42c1;">
+        <div class="container fs-2 text-center mt-2" style="color: {{PRIMARY_COLOR}};">
             <h1>Admin's Profile</h1>
         </div>
 
@@ -112,14 +112,14 @@
                 <div class="col-md-2 fs-6">
                     <form action="/logout" method="POST">
                         @csrf
-                        <button class="text-light btn rounded-pill" style="background-color: #6f42c1;" type="submit">Logout</button>
+                        <button class="text-light btn rounded-pill" style="background-color: {{PRIMARY_COLOR}};" type="submit">Logout</button>
                     </form>
                 </div>
                 <div class="col-md-4 fs-6">
-                    <a class="text-light btn rounded-pill" style="background-color: #6f42c1;"  href="/detail-transaction/{{$user->id}}">View All User's Transaction</a>
+                    <a class="text-light btn rounded-pill" style="background-color: {{PRIMARY_COLOR}};"  href="/detail-transaction/{{$user->id}}">View All User's Transaction</a>
                 </div>
                 <div class="col-md-4 fs-6">
-                    <a class="text-light btn rounded-pill" style="background-color: #6f42c1;"  href="/update-profile/{{$user->id}}">Update</a>
+                    <a class="text-light btn rounded-pill" style="background-color: {{PRIMARY_COLOR}};"  href="/update-profile/{{$user->id}}">Update</a>
                 </div>
             </div>
 
