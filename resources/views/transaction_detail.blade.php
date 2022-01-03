@@ -64,7 +64,7 @@
             @php
                 $total = 0;
             @endphp
-            <div class="container-fluid border mb-3" style="border-color: 30px {{PRIMARY_COLOR}};">
+            <div class="container-fluid mb-3" style="border-style:solid; border-color:{{PRIMARY_COLOR}};">
                 <p class="mt-3 fs-5 fw-bold">Transaction Id: {{$t->id}}</p>
                 <p class=" fs-6">Transaction Date: {{$t->date}}</p>
                 <p class=" fs-6">Method: {{$t->method}}</p>
@@ -72,7 +72,7 @@
                 <p class=" fs-6">User's Name: {{$t->user->name}}</p>
 
 
-                <table class="table table-sm table-bordered text-center" style="border-color: {{PRIMARY_COLOR}};">
+                <table class="table table-sm table-bordered text-center" style="border-style:solid; border-color: {{PRIMARY_COLOR}};">
                     <thead>
                         <tr>
                             <th scope="col">Furniture's Name</th>
