@@ -14,8 +14,10 @@ class TransactionDetailSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('transaction')->insert([
-
+        DB::table('transaction_details')->insert([
+            'transaction_id' => 1,
+            'furniture_id' => 3,
+            'quantity' => 2
         ]);
     }
 }
